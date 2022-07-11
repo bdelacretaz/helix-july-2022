@@ -40,6 +40,9 @@
   /* nav height */
   --nav-height: 64px;
 
+  /* footer align */
+  --footer-text-align: right;
+
 }
 
 body {
