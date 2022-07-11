@@ -5,3 +5,7 @@ div .newblock {
   color: green;
   font-weight: bold;
 }
+
+div .newblock img {
+  max-width: 20%;
+}
