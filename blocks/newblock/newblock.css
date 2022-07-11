@@ -2,12 +2,12 @@
 
 main .newblock-container > div {
   max-width: unset;
+  color: green;
+  font-weight: bold;
 }
 
 main .newblock-container {
   padding: 0;
-  color: green;
-  font-weight: bold;
 }
 
 main .newblock {
