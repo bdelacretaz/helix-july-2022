@@ -1,0 +1,17 @@
+/* block specific CSS goes here */
+
+main .newblock-container > div {
+  max-width: unset;
+}
+
+main .newblock-container {
+  padding: 0;
+  color: green;
+  font-weight: bold;
+}
+
+main .newblock {
+  position: relative;
+  padding: 32px;
+  min-height: 300px;
+}
