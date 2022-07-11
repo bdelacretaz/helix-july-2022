@@ -9,3 +9,10 @@ div .newblock {
 div .newblock img {
   max-width: 20%;
 }
+
+div .newblock .decorated {
+  font-style: italic;
+  font-weight: normal;
+  color:grey;
+  font-size:80%;
+}

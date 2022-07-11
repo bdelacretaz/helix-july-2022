@@ -1,4 +1,3 @@
 export default async function decorate(block) {
-  console.log("This would decorate newblock:");
-  console.log(block);
+  block.innerHTML = `<div class='decorated'>Decorated on ${new Date()}</div> ${block.innerHTML}`;
 }
