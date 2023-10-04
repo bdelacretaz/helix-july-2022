@@ -1,7 +1,7 @@
 /* block specific CSS goes here */
 
 div .float {
-  border: dotted green 2px;
+  border: dotted blue 3px;
   padding: 1em;
   width: 30%;
   float:right;
