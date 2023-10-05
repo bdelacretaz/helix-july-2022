@@ -1,18 +1,32 @@
 import { createOptimizedPicture } from '../../scripts/scripts.js';
 
+// TODO recommended way of loading the component scripts ?
+import '../../components/hlx-card.js'
+
 export default function decorate(block) {
-  /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
-    li.innerHTML = row.innerHTML;
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+    const card = document.createElement('hlx-card');
+
+    row.querySelectorAll('picture').forEach(p => {
+      p.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+      p.setAttribute("slot", "picture");
+      card.append(p);
     });
+
+    row.querySelectorAll('p').forEach(p => {
+      const strong = p.querySelector('strong');
+      if(strong) {
+        p.setAttribute('slot', 'title');
+        p.innerHTML = strong.innerHTML;
+      }
+      card.append(p);
+    });
+    li.append(card);
     ul.append(li);
   });
-  ul.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  //
   block.textContent = '';
   block.append(ul);
 }

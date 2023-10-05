@@ -20,9 +20,9 @@ export default function decorate($block) {
     const $phone = $cells[1];
     const $text = $cells[2];
 
-    const title = $title.textContent;
-    const phone = $phone.innerHTML.replace('https://tel/', 'tel:');
-    const text = $text.innerHTML;
+    const title = $title?.textContent;
+    const phone = $phone?.innerHTML.replace('https://tel/', 'tel:');
+    const text = $text?.innerHTML;
 
     contacts.push({
       title, phone, text,
