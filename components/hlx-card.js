@@ -3,12 +3,23 @@ class Card extends HTMLElement {
   static {
     Card.template.innerHTML = `
       <style>
-        h2 { font-size:120%; margin: 1em; }
-        .text { color:gray; margin: 1em; }
+        h2 {
+          font-size:120%; margin: 1em;
+        }
+        .text {
+          color:gray; margin: 1em;
+        }
+        article {
+          height: 100%;
+          border: 1px solid var(--highlight-background-color);
+          background-color: var(--background-color)
+        }
       </style>
-      <slot name='picture'></slot>
-      <h2><slot name='title'></slot></h2>
-      <div class='text'><slot></slot></div>
+      <article>
+        <slot class='picture' name='picture'></slot>
+        <h2 part='title'><slot name='title'></slot></h2>
+        <div part='text' class='text'><slot></slot></div>
+      </article>
     `;
   }
   connectedCallback() {

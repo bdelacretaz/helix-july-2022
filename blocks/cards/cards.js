@@ -6,6 +6,7 @@ import '../../components/hlx-card.js'
 export default function decorate(block) {
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
+    // convert each row to a custom hlx-card element
     const li = document.createElement('li');
     const card = document.createElement('hlx-card');
 
