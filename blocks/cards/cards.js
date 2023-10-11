@@ -3,6 +3,7 @@ import { createOptimizedPicture } from '../../scripts/scripts.js';
 // TODO recommended way of loading the component scripts ?
 import '../../components/hlx-card.js'
 
+// Render the cards using the hlx-card custom element
 export default function decorate(block) {
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
