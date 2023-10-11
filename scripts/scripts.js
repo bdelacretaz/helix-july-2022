@@ -637,22 +637,10 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
-/*  avoid a Flash Of Unstyled Components, as per
-    https://www.abeautifulsite.net/posts/flash-of-undefined-custom-elements/
-*/
-async function preventFOUCE(doc) {
-  // Better way to list all custom elements here?
-  await Promise.allSettled([
-    customElements.whenDefined('hlx-card'),
-  ]);
-  document.body.classList.add('readyFOUCE');
-}
-
 /**
  * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
-  preventFOUCE(doc);
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
