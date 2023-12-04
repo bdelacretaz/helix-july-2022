@@ -1,12 +1,13 @@
 // Component that turns slides on/off
 class SlidesControl extends HTMLElement {
   static showerClass = 'shower';
+  static controlEvent = 'slides:control';
 
   connectedCallback() {
     const button = document.createElement('button');
     this.replaceChildren(button);
     button.addEventListener('click', this.clicked.bind(this));
-    window.addEventListener('slides:control', this.render.bind(this));
+    window.addEventListener(SlidesControl.controlEvent, this.render.bind(this));
     this.render();
   }
 
@@ -14,7 +15,7 @@ class SlidesControl extends HTMLElement {
     document.body.classList.toggle(SlidesControl.showerClass);
     // there might be multiple instances of this element on
     // the page, let them know of the change
-    window.dispatchEvent(new CustomEvent('slides:control'));
+    window.dispatchEvent(new CustomEvent(SlidesControl.controlEvent));
   }
 
   render() {
