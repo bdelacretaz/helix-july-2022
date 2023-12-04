@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { addPageWrappers } from './page-wrappers.js';
+import { addSectionWrappers } from './section-wrappers.js';
 
 /**
  * log RUM if part of the sample.
@@ -637,7 +637,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  addPageWrappers();
+  addSectionWrappers();
 }
 
 /**
