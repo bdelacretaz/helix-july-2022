@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+import { addPageWrappers } from './page-wrappers.js';
+
 /**
  * log RUM if part of the sample.
  * @param {string} checkpoint identifies the checkpoint in funnel
@@ -635,6 +637,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  addPageWrappers();
 }
 
 /**
