@@ -12,6 +12,8 @@ class SlidesControl extends HTMLElement {
 
   clicked() {
     document.body.classList.toggle(SlidesControl.showerClass);
+    // there might be multiple instances of this element on
+    // the page, let them know of the change
     window.dispatchEvent(new CustomEvent('slides:control'));
   }
 
